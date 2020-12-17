@@ -15,19 +15,20 @@ class Modeling:
         
         #Creating a Model
         self.model=Sequential()
+        # Embedded layer that uses 64 length vectors to represent each word
         self.model.add(Embedding(199973, 64, input_length = 48506))
         self.model.add(Dropout(0.6))
-        self.model.add(Bidirectional(LSTM(80, return_sequences=True)))
+        self.model.add(Bidirectional(LSTM(80, return_sequences=True))) 
         self.model.add(Bidirectional(LSTM(160)))
         self.model.add(Dense(7,activation='softmax'))
         print(self.model.summary())
 
         #Compiling and running the model
-
+        #The efficient ADAM optimization algorithm is used
         self.model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
-        hist = self.model.fit(X_train_pad,Y_train_f,epochs=1,validation_data=(X_val_pad,Y_val_f))
+        history = self.model.fit(X_train_pad,Y_train_f,epochs=5,validation_data=(X_val_pad,Y_val_f))
 
-        return hist
+        return history
 
     @classmethod
     def get_key(self, value):
@@ -38,10 +39,10 @@ class Modeling:
          
 
 
-    def predict(self, tokenizer, sentence):
+    def predict(self, tokenizer, email):
         obj = Modeling
         sentence_lst=[]
-        sentence_lst.append(sentence)
+        sentence_lst.append(email)
         sentence_seq=tokenizer.texts_to_sequences(sentence_lst)
         sentence_padded=pad_sequences(sentence_seq,maxlen=80,padding='post')
         ans = obj.get_key(self.model.predict_classes(sentence_padded))
