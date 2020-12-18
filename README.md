@@ -7,7 +7,7 @@ I used Sentiment Analysis to come up with a solution to those problems. I though
 
 I used the Enron email dataset. I extract the email body from each row in the Message column then I built a function, with regex assistance, to label emails based on what I expect would be the email sender emotion. 
 
-I implemented Decision Tree Classifier and Logistic Regression, machine learning models, just to know who it would perform. However, I was not satisfied with the results. Then I implemented Bidirectional LSTM, Deep Learning, and I liked its performance. 
+I implemented **Decision Tree Classifier** and **Logistic Regression**, machine learning models, just to know who it would perform. However, I was not satisfied with the results. Then I implemented **Bidirectional LSTM**, Deep Learning, and I liked its performance. 
 
 I also built a function to check the model. its result was slightly satisfactory even though it did not work well with every single email that I feed it.
 
