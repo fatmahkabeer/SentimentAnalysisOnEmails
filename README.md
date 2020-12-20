@@ -5,7 +5,8 @@ This issue is also showing on a Business level. For example, customer service em
 
 I used Sentiment Analysis to come up with a solution to those problems. I thought about building an assistance tool based on AI, specifically, natural language processing. To add an emoji beside each email subject so we can detect email-sender emotion.
 
-I used the Enron email dataset. I extract the email body from each row in the Message column then I built a function, with regex assistance, to label emails based on what I expect would be the email sender emotion. 
+I used the Enron email dataset. I extracted the email body from each row in the Message column then I built a function, with regex assistance, to label emails based on what I expect would be the email sender emotion. However, as I believe, this dataset from a business email not a personal one, so emails inside the Dataset do not have enough variety of emotions. 
+
 
 I implemented **Decision Tree Classifier** and **Logistic Regression**, machine learning models, just to know who it would perform. However, I was not satisfied with the results. Then I implemented **Bidirectional LSTM**, Deep Learning, and I liked its performance. 
 
